@@ -57,7 +57,7 @@
 
     sound: function(volume, duration, freq) {
       if ( !window.webkitAudioContext ) {
-        return ['Your browser does not support his feature :('];
+        return ['Your browser does not support this feature :('];
       }
 
       volume = ((volume || '').replace(/[^0-9]/g, '') << 0) || 100;
