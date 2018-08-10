@@ -1,0 +1,50 @@
+{
+  "name": "crt",
+  "version": "1.0.0",
+  "description": "CRT Monitor Demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "serve": "webpack-dev-server",
+    "eslint": "eslint src/**/*.js",
+    "stylelint": "eslint src/**/*.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersevenrud/retro-css-shell-demo.git"
+  },
+  "keywords": [
+    "css"
+  ],
+  "author": "Anders Evenrud <andersevenrud@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andersevenrud/retro-css-shell-demo/issues"
+  },
+  "homepage": "https://github.com/andersevenrud/retro-css-shell-demo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.0.0-rc.1",
+    "@babel/plugin-transform-runtime": "^7.0.0-rc.1",
+    "@babel/preset-env": "^7.0.0-rc.1",
+    "@babel/runtime": "^7.0.0-rc.1",
+    "autoprefixer": "^9.1.0",
+    "babel-loader": "^8.0.0-beta.4",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.3.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^4.0.0-alpha",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "stylelint": "^9.4.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.2.0",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  }
+}

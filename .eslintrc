@@ -1,0 +1,56 @@
+{
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 8
+  },
+  "globals": {
+    "Promise": true,
+    "ArrayBuffer": true,
+    "File": true,
+    "Blob": true,
+    "OSjs": true,
+    "OSJS_VERSION": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "linebreak-style": ["error", "unix"],
+    "semi": ["error", "always"],
+    "indent": ["error", 2],
+    "radix": 1,
+    "eol-last": ["error", "always"],
+    "consistent-return": 1,
+    "space-in-parens": ["error", "never"],
+    "space-before-function-paren": ["error", {
+        "anonymous": "never",
+        "named": "never",
+        "asyncArrow": "always"
+    }],
+    "space-before-blocks": ["error", "always"],
+    "space-infix-ops": ["error", {"int32Hint": false}],
+    "space-unary-ops": ["error", {"words": true, "nonwords": false}],
+    "spaced-comment": ["warn", "always"],
+    "prefer-arrow-callback": 1,
+    "prefer-spread": 1,
+    "prefer-rest-params": 1,
+    "template-curly-spacing": ["warn", "never"],
+    "no-unused-vars": ["error", {"vars": "all", "args": "none"}],
+    "no-useless-constructor": 1,
+    "no-var": 2,
+    "no-duplicate-imports": 2,
+    "no-console": "off",
+    "no-extra-semi": 2,
+    "no-eval": 2,
+    "no-invalid-this": 1,
+    "no-new-func": 2,
+    "no-return-await": 1,
+    "no-self-compare": 2,
+    "no-with": 2,
+    "no-multi-assign": 1,
+    "no-new-object": 2,
+    "no-tabs": 1,
+  }
+}

@@ -1,0 +1,161 @@
+/**
+ * AnderShell - Just a small CSS demo
+ *
+ * Copyright (c) 2011-2018, Anders Evenrud <andersevenrud@gmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#crt {
+  position: relative;
+  z-index: 10;
+  background: $chassis-background;
+  width: 1280px;
+  height: 900px;
+  max-width: 1280px;
+  max-height: 1024px;
+  border-radius: $base-unit;
+  box-shadow: inset 0.25em 0.25em 2px rgba(255, 255, 255, 0.4), inset -0.25em -0.25em 2px rgba(0, 0, 0, 0.4);
+  user-select: none;
+  font-size: $font-size;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+
+#screen {
+  position: relative;
+  z-index: 20;
+  width: calc(100% - #{$chassis-margin});
+  height: calc(100% - #{$chassis-margin});
+  margin-top: $chassis-margin / 2;
+  margin-left: $chassis-margin / 2;
+  background: #000;
+  border-radius: $base-unit;
+  overflow: hidden;
+  box-shadow: 0 0 1px 3px rgba(10, 10, 10, 0.7);
+
+  &::before {
+    @include fill();
+
+    content: '';
+    z-index: 70;
+    box-shadow: inset 0 0 $base-unit ($base-unit / 2) rgba(#fff, 0.08);
+    border-radius: $base-unit;
+  }
+
+  &::after {
+    @include fill();
+
+    content: '';
+    z-index: 60;
+    opacity: 0.1;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  }
+}
+
+#wrapper {
+  @include fill();
+
+  z-index: 30;
+  transform-origin: 50% 50%;
+  transform: skewX(0.5deg);
+  animation: pulse 5s linear infinite;
+
+  &::before {
+    @include fill();
+
+    content: '';
+    z-index: 31;
+    background: radial-gradient(ellipse at center, rgba($gradient-bottom, 0) 0%, rgba($gradient-bottom, 0.5) 100%);
+    pointer-events: none;
+  }
+
+  &::after {
+    @include fill();
+
+    content: '';
+    z-index: 32;
+    opacity: 0.5;
+    background: radial-gradient(ellipse at center, rgba($gradient-inner, 1) 0%, rgba($gradient-inner, 0) 100%);
+    pointer-events: none;
+  }
+}
+
+#interlace {
+  @include fill();
+
+  z-index: 21;
+  opacity: 0.25;
+  background: $interlace-background;
+  background-size: 100% $interlace-size;
+  background-repeat: repeat-y;
+}
+
+#envelope {
+  @include fill($envelope-margin, $envelope-margin, $envelope-margin, $envelope-margin);
+
+  z-index: 40;
+  border-radius: $base-unit / 2;
+  background: $envelope-background;
+  animation: skew 5s linear infinite;
+}
+
+#scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: $base-unit;
+  opacity: 0.1;
+  background: $scanline-background;
+  animation: scanline 1.25s linear infinite;
+}
+
+#terminal {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+
+  textarea {
+    display: block;
+    background: transparent;
+    resize: none;
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+    outline: 0 none;
+    box-sizing: border-box;
+    pointer-events: none;
+    margin: 0;
+    overflow: hidden;
+    padding: $base-unit;
+    color: $output-color;
+    text-shadow: 0 0 2px $output-text-shadow;
+    font-family: $output-font-family;
+    font-size: inherit;
+    animation: blur 5s linear infinite;
+    line-height: $output-line-height;
+    white-space: pre-wrap;
+  }
+}
