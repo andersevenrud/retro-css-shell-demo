@@ -4,17 +4,21 @@ A retro-looking shell using CSS and JavaScript.
 
 Somewhat inspired by PipBoy and old-school UNIX terminals.
 
-![Screenshot](https://raw.githubusercontent.com/andersevenrud/retro-css-shell-demo/v2/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/andersevenrud/retro-css-shell-demo/master/screenshot.png)
 
 # Demo
 
-[See it in action here](https://crt.no/)
+[See it in action here](http://andersevenrud.github.io/shell/)
+
+*Please note that this demo is currently outdated and will be updated asap*
 
 # Running
 
 Just serve `dist/` and you're good to go.
 
 # Development
+
+Run `npm install`.
 
 * `npm run serve` - Development server
 * `npm run build` - Build
