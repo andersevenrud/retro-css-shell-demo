@@ -140,7 +140,7 @@ const keyboard = (parse) => {
         const str = input.join('').trim();
         parse(str);
         input = [];
-      } else {
+      } else if (key(ev) !== 'backspace') {
         input.push(String.fromCharCode(ev.which || ev.keyCode));
       }
     },
@@ -173,7 +173,6 @@ export const terminal = (opts) => {
 
   const output = (output, center) => {
     let lines = output.split(/\n/);
-    console.warn(lines)
     if (center) {
       lines = lines.map(line => line.length > 0
         ? line.padStart(line.length + ((cwidth / 2) - (line.length / 2)), ' ')
@@ -190,7 +189,7 @@ export const terminal = (opts) => {
   const onparsed = (cmd, ...args) => execute(cmd, ...args)(output);
   const render = renderer(tickrate, onrender);
   const parse = parser(onparsed);
-  const focus = () => $element.focus();
+  const focus = () => setTimeout(() => $element.focus(), 1);
   const kbd = keyboard(parse);
   const clear = () => ($element.value = '');
   const input = ev => busy
