@@ -98,6 +98,7 @@
     opacity: 0.5;
     background: radial-gradient(ellipse at center, rgba($gradient-inner, 1) 0%, rgba($gradient-inner, 0) 100%);
     pointer-events: none;
+    animation: glow 2s linear infinite;
   }
 }
 

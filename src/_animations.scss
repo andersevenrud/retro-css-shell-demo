@@ -77,3 +77,9 @@
     text-shadow: 2px 0 2px lighten($output-text-shadow, 50%);
   }
 }
+
+@keyframes glow {
+  50% {
+    transform: scale(1.2);
+  }
+}
