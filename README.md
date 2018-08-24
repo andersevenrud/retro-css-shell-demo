@@ -8,7 +8,7 @@ Somewhat inspired by PipBoy and old-school UNIX terminals.
 
 # Demo
 
-[See it in action here](http://andersevenrud.github.io/shell/)
+[See it in action here](https://crt.no/) ([old version](http://andersevenrud.github.io/shell/))
 
 *Please note that this demo is currently outdated and will be updated asap*
 
