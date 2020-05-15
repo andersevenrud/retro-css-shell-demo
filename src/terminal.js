@@ -42,6 +42,7 @@ const createElement = root => {
   el.value = '';
 
   root.appendChild(el);
+  document.body.ontouchend = function() { el.focus(); };
 
   return el;
 };
@@ -128,7 +129,7 @@ const executor = commands => (cmd, ...args) => cb => {
 };
 
 // Handle keyboard events
-const keyboard = (parse) => {
+const keyboard = ($element, prompt, parse) => {
   let input = [];
   const keys = {8: 'backspace', 13: 'enter'};
   const ignoreKey = code => code >= 33 && code <= 40;
@@ -138,7 +139,7 @@ const keyboard = (parse) => {
     keypress: (ev) => {
       if (key(ev) === 'enter') {
         const str = input.join('').trim();
-        parse(str);
+        parse(str || $element.value.split(/\n/)[$element.value.split(/\n/).length - 1].replace(prompt(), ''));
         input = [];
       } else if (key(ev) !== 'backspace') {
         input.push(String.fromCharCode(ev.which || ev.keyCode));
@@ -190,7 +191,7 @@ export const terminal = (opts) => {
   const render = renderer(tickrate, onrender);
   const parse = parser(onparsed);
   const focus = () => setTimeout(() => $element.focus(), 1);
-  const kbd = keyboard(parse);
+  const kbd = keyboard($element, prompt, parse);
   const clear = () => ($element.value = '');
   const input = ev => busy
     ? ev.preventDefault()
