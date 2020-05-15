@@ -42,6 +42,7 @@ const createElement = root => {
   el.value = '';
 
   root.appendChild(el);
+  document.body.ontouchend = function() { el.focus(); };
 
   return el;
 };
